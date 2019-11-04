@@ -37,7 +37,28 @@ while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
 番号：<?php print $row['number']; ?><br>
 名前：<?php print $row['name']; ?><br>
 時間：<?php print $row['time']; ?><br>
-内容：<?php print $row['content']; ?><br>
+内容：<?php 
+  // URLが１行で投稿されたらハイパーリンクにする（target="_blank"）
+  // explode()で改行コードを区切りとして分解して配列に入れる
+  $ary = explode( "\ｎ", $row['content'] );
+  //配列にいくつ要素があるか
+  $countary = count($ary);
+  // 一行投稿か
+  if ($countary == 1) {
+    // URL？
+    if( filter_var( $ary, FILTER_VALIDATE_URL ) ){
+      // URLが"正しい"場合の処理
+      // ハイパーリンクにする
+      print ’URLを表示する処理を書く’;
+    }else{
+      // 1行かつURLでは無い場合の処理
+      print $row['content']; 
+    }
+  }else{
+    print $row['content'];
+?>
+
+<br>
 
 <br>
 <br>
