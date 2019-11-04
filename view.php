@@ -44,8 +44,10 @@ while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
   $ary = explode(PHP_EOL, $row['content']);
   //配列にいくつ要素があるか
   $countary = count($ary);
-  print_r($ary);
-  print_r($countary);
+  // デバック用
+  //print_r($ary);
+  //print_r($countary);
+  
   // 一行投稿か
   if ($countary == 1) {
     // URL
@@ -57,11 +59,10 @@ while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
       // 1行かつURLでは無い場合の処理
       print $row['content']; 
     }
-    echo "一行投稿";
   }else{
     print $row['content'];
-    ?>
-  <?php print $row['content']; ?>
+  }
+?>
 <br>
 
 <br>
@@ -70,7 +71,7 @@ while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
 <?php
 }
 ?>
- 
+
 <?php
 // $isNameと$isContentが存在するとき
 if(isset($isName, $isContent)){
