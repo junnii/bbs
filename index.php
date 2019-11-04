@@ -1,8 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>掲示板</title>
-  <meta http-equiv="content-type" content="text/html;
-  charset=utf-8">
 </head>
 <body>
 
