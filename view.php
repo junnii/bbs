@@ -54,16 +54,24 @@ while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
     if( filter_var($ary[0], FILTER_VALIDATE_URL)){
       // URLが"正しい"場合の処理
       // ハイパーリンクにする
-      print "<a href='" . $row["content"] . "' target=_blank>" . $row["content"] . "</a>";
+      //print "<a href='" . $row["content"] . "' target=_blank>" . $row["content"] . "</a>";
+      //改行を<br>に変換
+      $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+      $replace = '<a href="$1" target=_blank>$1</a>';
+      print  nl2br(preg_replace( $pattern, $replace, $row["content"]) );
+    
     }else{
       // 1行かつURLでは無い場合の処理
-      print $row['content']; 
+      $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+      $replace = '<a href="$1" target=_blank>$1</a>';
+      print  nl2br(preg_replace( $pattern, $replace, $row["content"]) );
     }
   }else{
-    print $row['content'];
+    $pattern = '/((?:https?|ftp):\/\/[-_.!~*\'()a-zA-Z0-9;\/?:@&=+$,%#]+)/';
+    $replace = '<a href="$1" target=_blank>$1</a>';
+    print  nl2br(preg_replace( $pattern, $replace, $row["content"]) );
   }
 ?>
-<br>
 
 <br>
 <br>
