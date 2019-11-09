@@ -2,8 +2,8 @@
 /* データベースの秘密情報 */
 $db_user = "junnii_portfolio";  // ユーザ名
 $db_pass = "junnii0619";   // パスワード
-//$db_host = "mysql8042.xserver.jp";   // ホスト名
-$db_host = "localhost";   // ホスト名
+$db_host = "mysql8042.xserver.jp";   // ホスト名
+//$db_host = "localhost";   // ホスト名
 $db_name = "junnii_bbs";  // データベース名
 $db_type = "mysql";       // データベースの種類
 ?>

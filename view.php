@@ -34,10 +34,6 @@ if($count == 0){
 while($row = $stmh->fetch(PDO::FETCH_ASSOC)){
 ?>
 
-変更履歴
-2019/11/7 文中にURLがあったらハイパーリンクにする
-2019/11/7　文中に改行コードがあったらbrタグに変換する
-
 番号：<?php print $row['number']; ?><br>
 名前：<?php print $row['name']; ?><br>
 時間：<?php print $row['time']; ?><br>

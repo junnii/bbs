@@ -1,4 +1,17 @@
 <?php
+/* ユーザ関数 */
+require 'lib/util.php';
+
+// 文字エンコードの検証
+if (!cken($_POST)){
+  $encoding = mb_internal_encoding();
+  $err = "Encoding Error! The expected encoding is " . $encoding ;
+  // エラーメッセージを出して、以下のコードをすべてキャンセルする
+  exit($err);
+}
+// HTMLエスケープ（XSS対策）
+$_POST = es($_POST);
+
 // form.phpから送信されてきた場合
 if(isset($_POST["name"], $_POST["content"])){
 
