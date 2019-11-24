@@ -1,7 +1,7 @@
 <?php 
 require_once 'common/functions.php';
 $pdo = connectDB();
-
+//
 // ステートメントハンドラを取得
 $pdo = connectDB();                       
 try{
